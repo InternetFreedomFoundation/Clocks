@@ -19,9 +19,12 @@ export interface LinkArchiveResponse {
 	totalItems: number;
 	items: LinkArchive[];
 }
-export const pb = new PocketBase(POCKETBASE_URL);
 
-async function ensureAuthenticated() {
+function createPocketBaseClient() {
+    return new PocketBase(POCKETBASE_URL);
+}
+
+async function ensureAuthenticated(pb: PocketBase) {
 	if (!pb.authStore.isValid) {
 		try {
 			await pb
@@ -36,7 +39,8 @@ async function ensureAuthenticated() {
 
 export async function getArchiveLinks(url?: string): Promise<LinkArchiveResponse> {
 	try {
-		await ensureAuthenticated();
+		const pb = createPocketBaseClient();
+        await ensureAuthenticated(pb);
 		// switching = with ~ gives search capabilities instead of exact match.
 		const filter = url ? `URL = "${url}"` : '';
 		const records = await pb.collection('Link_Archives').getList(1, 10, {
