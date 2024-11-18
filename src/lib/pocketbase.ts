@@ -1,5 +1,5 @@
 import PocketBase from 'pocketbase';
-import { env } from '$env/dynamic/private';
+import { POCKETBASE_PASSWORD, POCKETBASE_URL, POCKETBASE_USERNAME } from '$env/static/private';
 export interface LinkArchive {
 	id: string;
 	collectionId: string;
@@ -19,14 +19,14 @@ export interface LinkArchiveResponse {
 	totalItems: number;
 	items: LinkArchive[];
 }
-export const pb = new PocketBase(env.POCKETBASE_URL);
+export const pb = new PocketBase(POCKETBASE_URL);
 
 async function ensureAuthenticated() {
 	if (!pb.authStore.isValid) {
 		try {
 			await pb
 				.collection('API_ACCESS')
-				.authWithPassword(env.POCKETBASE_USERNAME, env.POCKETBASE_PASSWORD);
+				.authWithPassword(POCKETBASE_USERNAME, POCKETBASE_PASSWORD);
 		} catch (error) {
 			console.error('Authentication failed:', error);
 			throw new Error('Failed to authenticate with PocketBase');
