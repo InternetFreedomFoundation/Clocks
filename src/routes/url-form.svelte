@@ -4,13 +4,16 @@
 	import { zodClient } from 'sveltekit-superforms/adapters';
 	import { superForm, type Infer, type SuperValidated } from 'sveltekit-superforms/client';
 	import { formSchema, type FormSchema } from './schema';
+	import { Loader } from 'lucide-svelte';
 	export let data: SuperValidated<Infer<FormSchema>>;
 
 	const form = superForm(data, {
 		validators: zodClient(formSchema),
-		resetForm: false
+		resetForm: false,
+		delayMs: 500,
+		timeoutMs: 2000
 	});
-	const { form: formData, enhance } = form;
+	const { form: formData, enhance, delayed } = form;
 </script>
 
 <form method="POST" use:enhance class="mx-auto mt-4 flex w-full max-w-3xl flex-col items-center">
@@ -19,7 +22,12 @@
 			{#snippet children({ props })}
 				<div class="flex w-full gap-2">
 					<Input {...props} bind:value={$formData.URL} placeholder="https://intenetfreedom.in" />
-					<Form.Button>Search</Form.Button>
+					<Form.Button>
+						{#if $delayed}Searching <Loader />
+						{:else}
+							Search
+						{/if}
+					</Form.Button>
 				</div>
 			{/snippet}
 		</Form.Control>

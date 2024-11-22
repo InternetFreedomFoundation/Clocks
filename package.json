@@ -46,6 +46,7 @@
 		"@aws-sdk/client-s3": "^3.693.0",
 		"@aws-sdk/s3-request-presigner": "^3.693.0",
 		"@sveltejs/adapter-cloudflare": "^4.7.4",
+		"lucide-svelte": "^0.460.1",
 		"pocketbase": "^0.21.5",
 		"svelte-kit-sst": "2.43.5",
 		"svelte-radix": "^2.0.1"
