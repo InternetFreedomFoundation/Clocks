@@ -6,7 +6,7 @@ import { redirect } from '@sveltejs/kit';
 export const GET: RequestHandler = async ({ params }) => {
 	const url = params.url;
 
-	console.log("Returning presigned URL for:", url);
+	console.log('Returning presigned URL for:', url);
 
 	const downloadURL = await getS3SignedUrl({
 		bucket: AWS_BUCKET_NAME,

@@ -20,14 +20,14 @@ export const actions: Actions = {
 			});
 		}
 		try {
-			console.log("Received search for URL:", form.data.URL);
+			console.log('Received search for URL:', form.data.URL);
 			const archives: LinkArchiveResponse = await getArchiveLinks(form.data.URL);
 			if (archives.totalItems == 0) {
 				return message(form, 'No archives found', {
 					status: 404
 				});
 			}
-			console.log("Found %d archives", archives.totalItems);
+			console.log('Found %d archives', archives.totalItems);
 			return {
 				form,
 				archives

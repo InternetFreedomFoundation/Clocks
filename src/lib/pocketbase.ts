@@ -21,15 +21,13 @@ export interface LinkArchiveResponse {
 }
 
 function createPocketBaseClient() {
-    return new PocketBase(POCKETBASE_URL);
+	return new PocketBase(POCKETBASE_URL);
 }
 
 async function ensureAuthenticated(pb: PocketBase) {
 	if (!pb.authStore.isValid) {
 		try {
-			await pb
-				.collection('API_ACCESS')
-				.authWithPassword(POCKETBASE_USERNAME, POCKETBASE_PASSWORD);
+			await pb.collection('API_ACCESS').authWithPassword(POCKETBASE_USERNAME, POCKETBASE_PASSWORD);
 		} catch (error) {
 			console.error('Authentication failed:', error);
 			throw new Error('Failed to authenticate with PocketBase');
@@ -40,7 +38,7 @@ async function ensureAuthenticated(pb: PocketBase) {
 export async function getArchiveLinks(url?: string): Promise<LinkArchiveResponse> {
 	try {
 		const pb = createPocketBaseClient();
-        await ensureAuthenticated(pb);
+		await ensureAuthenticated(pb);
 		// switching = with ~ gives search capabilities instead of exact match.
 		const filter = url ? `URL = "${url}"` : '';
 		const records = await pb.collection('Link_Archives').getList(1, 10, {

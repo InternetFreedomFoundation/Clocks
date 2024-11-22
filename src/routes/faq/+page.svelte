@@ -28,7 +28,8 @@
 	<Accordion.Item value="item-4">
 		<Accordion.Trigger>How can I access private archives?</Accordion.Trigger>
 		<Accordion.Content
-			>Some Archives may be marked as private, if you'd like to get access, please drop an email at media(at)internetfreedom(dot)in.</Accordion.Content
+			>Some Archives may be marked as private, if you'd like to get access, please drop an email at
+			media(at)internetfreedom(dot)in.</Accordion.Content
 		>
 	</Accordion.Item>
 </Accordion.Root>
