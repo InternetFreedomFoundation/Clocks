@@ -6,6 +6,8 @@ This frontend is used to search and list archived records indexed by pocketbase 
 
 Archiving is achieved using [SingleFile](https://github.com/gildas-lormeau/SingleFile/tree/master).
 
+Backend repo can be found [here](https://github.com/InternetFreedomFoundation/clocks-backend).
+
 ## Developing
 
 Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
