@@ -9,6 +9,12 @@
 </script>
 
 <div class="container mx-auto px-4 py-6">
+	<div class="px-4 py-8 border-b max-w-md mx-auto">
+		<h1 class="scroll-m-20 text-center text-6xl font-extrabold tracking-tight">Clocks ⏰</h1>
+		<p class="text-center leading-7 [&:not(:first-child)]:mt-6">
+			An Experimental archival solution
+		</p>
+	</div>
 	<UrlForm data={data.form} />
 
 	{#if $message}

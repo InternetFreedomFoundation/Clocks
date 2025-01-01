@@ -32,4 +32,10 @@
 			media(at)internetfreedom(dot)in.</Accordion.Content
 		>
 	</Accordion.Item>
+	<Accordion.Item value="item-4">
+		<Accordion.Trigger>Is the source code available?</Accordion.Trigger>
+		<Accordion.Content>
+			Yes, this is an open-source project. Source available <a class="underline" href="https://github.com/InternetFreedomFoundation/Clocks">here</a>.</Accordion.Content
+		>
+	</Accordion.Item>
 </Accordion.Root>

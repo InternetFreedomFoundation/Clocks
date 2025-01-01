@@ -16,7 +16,7 @@
 	const { form: formData, enhance, delayed } = form;
 </script>
 
-<form method="POST" use:enhance class="mx-auto mt-4 flex w-full max-w-3xl flex-col items-center">
+<form method="POST" use:enhance class="mx-auto px-4 py-8 mt-4 flex w-full max-w-3xl flex-col items-center">
 	<Form.Field {form} name="URL">
 		<Form.Control>
 			{#snippet children({ props })}
@@ -32,7 +32,7 @@
 			{/snippet}
 		</Form.Control>
 		<Form.Description class="mt-4 text-center text-sm text-gray-500"
-			>Enter any URL to search through its archived versions</Form.Description
+			>Enter URL to search through its archived versions</Form.Description
 		>
 		<Form.FieldErrors class="mt-2 text-center text-red-500" />
 	</Form.Field>
