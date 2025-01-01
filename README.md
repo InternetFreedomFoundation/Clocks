@@ -2,6 +2,10 @@
 
 An attempt at solving the Linkrot problem using serverless solutions.
 
+This frontend is used to search and list archived records indexed by pocketbase API.
+
+Archiving is achieved using [SingleFile](https://github.com/gildas-lormeau/SingleFile/tree/master).
+
 ## Developing
 
 Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
